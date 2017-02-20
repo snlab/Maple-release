@@ -1,4 +1,6 @@
-# Maple-release
+# Maple Release
+
+[**CHANGELOG**](https://github.com/snlab/Maple-release/blob/master/CHANGELOG.md) | [**RELEASE**](https://github.com/snlab/Maple-release/releases)
 
 ## Latest release content
 
