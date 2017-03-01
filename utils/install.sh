@@ -1,7 +1,7 @@
 #!/bin/bash
 
-TAG=v0.1.0-alpha-pre1
-VERSION=0.1.0-alpha-pre1
+TAG=v0.1.0-alpha
+VERSION=0.1.0-alpha
 MAPLE_ZIP=maple-$VERSION
 
 function install_maple {
@@ -25,7 +25,7 @@ function install_maple_lib {
 
 function install_maple_archetype {
     cd /tmp
-    git clone https://github.com/snlab/maple-archetype.git odl-summit
+    git clone https://github.com/snlab/maple-archetype.git -b $TAG
     cd maple-archetype
     mvn clean install -DskipTests
 }
