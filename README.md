@@ -46,7 +46,7 @@ It will do the following things:
 1. Download the zip file of the latest maple release into `/tmp`
 2. Unzip the latest maple release into `$HOME/.maple/`
 3. Download and uncompress maven `settings.xml` and maple library into `$HOME/.m2/`
-4. Check out the source code of maple-archetype from Github to `/tmp`, then compile and install it   
+4. ~~Check out the source code of maple-archetype from Github to `/tmp`, then compile and install it~~
 
 And then, you can start the maple controller by using the [start script](https://raw.githubusercontent.com/snlab/Maple-release/master/utils/start_maple.sh), you will see an output as `ODLMapleProvider Session Initiated` in terminal:
 

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-TAG=v0.1.0-alpha
-VERSION=0.1.0-alpha
+TAG=v0.2.0-alpha
+VERSION=0.2.0-alpha
 MAPLE_ZIP=maple-$VERSION
 
 function install_maple {
@@ -29,6 +29,9 @@ function install_maple_archetype {
     cd maple-archetype
     mvn clean install -DskipTests
 }
+
 install_maple
 install_maple_lib
-install_maple_archetype
+# install_maple_archetype
+
+

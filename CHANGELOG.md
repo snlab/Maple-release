@@ -1,5 +1,16 @@
 # Release 0.1.x
 
+
+## v0.2.0-alpha (2017/03/04)
+
+v0.2.0-alpha
+
+**Changes**
+
+- Add tracetree-history DataStore
+- Pre-compile maple-archetype
+
+
 ## v0.1.0-alpha (2017/03/1)
 
 v0.1.0-alpha
