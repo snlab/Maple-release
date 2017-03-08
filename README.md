@@ -1,10 +1,12 @@
 # Maple Release
 
+[![Latest Release][release]](https://github.com/snlab/Maple-release/releases)
+
 [**CHANGELOG**](https://github.com/snlab/Maple-release/blob/master/CHANGELOG.md) | [**RELEASE**](https://github.com/snlab/Maple-release/releases)
 
 Maple is a high-level SDN programming language. The original paper claims the basic design of Maple:
 
-> Voellmy, A., Wang, J., Yang, Y. R., Ford, B., & Hudak, P. (2013). Maple: Simplifying SDN programming using algorithmic policies. ACM SIGCOMM Computer Communication Review, 43(4), 87-98. [[pdf]](conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p87.pdf)
+> Voellmy, A., Wang, J., Yang, Y. R., Ford, B., & Hudak, P. (2013). Maple: Simplifying SDN programming using algorithmic policies. ACM SIGCOMM Computer Communication Review, 43(4), 87-98. [[pdf]](http://conferences.sigcomm.org/sigcomm/2013/papers/sigcomm/p87.pdf)
 
 Unfortunately, it is a close source project for some reason now. So we maintain this GitHub repository to deliver the binary version of Maple. The latest release is based on OpenDaylight Beryllium-SR3. You can download it from the [release](https://github.com/snlab/Maple-release/releases) page and try it out.
 
@@ -87,5 +89,8 @@ mvn clean install -DskipTests
 | :--------:          | :---:                                    | :------:   |
 | odlmaple (private)  | https://github.com/snlab/odlmaple        | odl-summit |
 | MapleCore (private) | https://github.cm/snlab/MapleCore        | master     |
-| MapleApp            | https://github.com/snlab/MapleApp        | odl-summit |
+| MapleApp (private)  | https://github.com/snlab/MapleApp        | odl-summit |
 | maple-archetype     | https://github.com/snlab/maple-archetype | odl-summit |
+
+
+[release]: https://img.shields.io/github/release/snlab/Maple-release.svg "Latest Release"
