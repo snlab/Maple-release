@@ -173,7 +173,7 @@ GET http://localhost:8181/restconf/operational/maple-tracetree-history:tracetree
 }
 ````
 
-GET http://localhost:8181/restconf/operational/maple-tracetree-history:tracetreehistory/history/<seq>/
+GET http://localhost:8181/restconf/operational/maple-tracetree-history:tracetreehistory/history/\<seq\>/
 
 \<seq\> is an interger from 0 to ( history_count -1 )
 
