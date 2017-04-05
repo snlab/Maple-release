@@ -183,101 +183,96 @@ GET http://localhost:8181/restconf/operational/maple-tracetree-history:tracetree
 {
   "history": [
     {
-      "seq": 15,
+      "seq": 23,
       "pkt": {
-        "pkt-hex": "00:00:00:00:00:03:00:00:00:00:00:01:08:06:00:01:08:00:06:04:00:02:00:00:00:00:00:01:0a:00:00:01:00:00:00:00:00:03:0a:00:00:03",
-        "timestamp": "03-03-2017 21:28:27:560",
-        "pkt-str": "MaplePacket [ingressPort=openflow:3:3, frame=\narp\ndl_vlan: untagged\ndl_vlan_pcp: 0\ndl_src: 00:00:00:00:00:01\ndl_dst: 00:00:00:00:00:03\nnw_src: 10.0.0.1\nnw_dst: 10.0.0.3]"
+        "pkt-str": "MaplePacket [ingressPort=openflow:3:2, frame=\narp\ndl_vlan: untagged\ndl_vlan_pcp: 0\ndl_src: 8a:95:62:10:ab:6d\ndl_dst: a6:73:53:ac:03:be\nnw_src: 10.0.0.2\nnw_dst: 10.0.0.1]",
+        "pkt-hex": "a6:73:53:ac:03:be:8a:95:62:10:ab:6d:08:06:00:01:08:00:06:04:00:02:8a:95:62:10:ab:6d:0a:00:00:02:a6:73:53:ac:03:be:0a:00:00:01",
+        "timestamp": "05-04-2017 08:13:28:063",
+        "pkt-json-str": "{\"ingressPort\":\"openflow:3:2\",\"frame\":{\"eth_src\":\"8A:95:62:10:AB:6D\",\"eth_dst\":\"A6:73:53:AC:03:BE\",\"eth_type\":\"0x0806\",\"payload\":{\"protocolAddressLength\":\"0x04\",\"targetProtocolAddress\":\"0x0a000001\",\"hardwareType\":\"0x0001\",\"opCode\":\"0x0002\",\"protocolType\":\"0x0800\",\"targetHardwareAddress\":\"0xa67353ac03be\",\"senderHardwareAddress\":\"0x8a956210ab6d\",\"senderProtocolAddress\":\"0x0a000002\",\"hardwareAddressLength\":\"0x06\"}}}"
       },
       "tracetree-v2": {
         "tt-link-v2": [
           {
             "id": "8",
-            "predicate-id": "6",
-            "condition": "10.0.0.1",
-            "destination-id": "7"
-          },
-          {
-            "id": "9",
-            "predicate-id": "1",
-            "condition": "10.0.0.3",
-            "destination-id": "6"
-          },
-          {
-            "id": "12",
             "predicate-id": "0",
-            "condition": "ARP",
-            "destination-id": "11"
-          },
-          {
-            "id": "4",
-            "predicate-id": "2",
-            "condition": "10.0.0.3",
-            "destination-id": "3"
+            "condition": "IPv4",
+            "destination-id": "1"
           },
           {
             "id": "5",
+            "predicate-id": "3",
+            "condition": "!= 80",
+            "destination-id": "4"
+          },
+          {
+            "id": "6",
+            "predicate-id": "2",
+            "condition": "== 10.0.0.2",
+            "destination-id": "3"
+          },
+          {
+            "id": "7",
             "predicate-id": "1",
-            "condition": "10.0.0.1",
+            "condition": "== 10.0.0.1",
             "destination-id": "2"
           },
           {
             "id": "10",
             "predicate-id": "0",
-            "condition": "IPv4",
-            "destination-id": "1"
+            "condition": "ARP",
+            "destination-id": "9"
           }
         ],
         "tt-node-v2": [
           {
-            "id": "7",
+            "id": "4",
             "type": "L",
             "action-type": "Path",
             "link": [
               {
-                "link-id": "openflow:3:3",
-                "dst-node": {
-                  "node-id": "openflow:0",
-                  "port": "openflow:0:0"
-                },
-                "src-node": {
-                  "node-id": "openflow:3",
-                  "port": "openflow:3:3"
-                }
-              },
-              {
-                "link-id": "openflow:1:1",
+                "link-id": "openflow:1:4",
                 "dst-node": {
                   "node-id": "openflow:0",
                   "port": "openflow:0:0"
                 },
                 "src-node": {
                   "node-id": "openflow:1",
-                  "port": "openflow:1:1"
+                  "port": "openflow:1:4"
                 }
               },
               {
-                "link-id": "openflow:2:1",
+                "link-id": "openflow:3:2",
                 "dst-node": {
                   "node-id": "openflow:0",
                   "port": "openflow:0:0"
                 },
                 "src-node": {
-                  "node-id": "openflow:2",
-                  "port": "openflow:2:1"
+                  "node-id": "openflow:3",
+                  "port": "openflow:3:2"
+                }
+              },
+              {
+                "link-id": "openflow:4:1",
+                "dst-node": {
+                  "node-id": "openflow:0",
+                  "port": "openflow:0:0"
+                },
+                "src-node": {
+                  "node-id": "openflow:4",
+                  "port": "openflow:4:1"
                 }
               }
             ]
           },
           {
-            "id": "6",
-            "type": "V",
-            "matchfield": "IPv4_DST"
+            "id": "1",
+            "type": "T",
+            "testfield": "IPv4_SRC"
           },
           {
-            "id": "1",
-            "type": "V",
-            "matchfield": "IPv4_SRC"
+            "id": "9",
+            "type": "L",
+            "action-type": "Flood"
           },
           {
             "id": "0",
@@ -285,54 +280,14 @@ GET http://localhost:8181/restconf/operational/maple-tracetree-history:tracetree
             "matchfield": "ETH_TYPE"
           },
           {
-            "id": "11",
-            "type": "L",
-            "action-type": "Flood"
-          },
-          {
             "id": "3",
-            "type": "L",
-            "action-type": "Path",
-            "link": [
-              {
-                "link-id": "openflow:2:3",
-                "dst-node": {
-                  "node-id": "openflow:0",
-                  "port": "openflow:0:0"
-                },
-                "src-node": {
-                  "node-id": "openflow:2",
-                  "port": "openflow:2:3"
-                }
-              },
-              {
-                "link-id": "openflow:3:1",
-                "dst-node": {
-                  "node-id": "openflow:0",
-                  "port": "openflow:0:0"
-                },
-                "src-node": {
-                  "node-id": "openflow:3",
-                  "port": "openflow:3:1"
-                }
-              },
-              {
-                "link-id": "openflow:1:2",
-                "dst-node": {
-                  "node-id": "openflow:0",
-                  "port": "openflow:0:0"
-                },
-                "src-node": {
-                  "node-id": "openflow:1",
-                  "port": "openflow:1:2"
-                }
-              }
-            ]
+            "type": "T",
+            "testfield": "TCP_DST_PORT"
           },
           {
             "id": "2",
-            "type": "V",
-            "matchfield": "IPv4_DST"
+            "type": "T",
+            "testfield": "IPv4_DST"
           }
         ]
       }

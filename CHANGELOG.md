@@ -1,5 +1,14 @@
 # Release 0.2.x
 
+## v0.2.2-alpha (2017/03/14)
+
+v0.2.2-alpha
+
+**Changes**
+
+- Add pkt-json-str
+- Add feature odl-openflowplugin-app-table-miss-enforcer to suppot tall version OVS
+- Initialize the DataStore
 
 ## v0.2.1-alpha (2017/03/14)
 
@@ -8,7 +17,6 @@ v0.2.1-alpha
 **Changes**
 
 - Fix a bug
-- Initialize the DataStore 
 
 ## v0.2.0-alpha (2017/03/04)
 
