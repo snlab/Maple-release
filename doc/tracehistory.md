@@ -1,10 +1,124 @@
 ## TraceTree API
 
-RESTful API
+### YANG Model
+
+The latest trace tree data structure is defined by the following YANG model:
+
+``` yang
+grouping tracetree-v2-grouping {
+    container tracetree-v2{
+        list tt-node-v2 {
+            key "id";
+            leaf id {
+                type string;
+            }
+            leaf type {
+                type string;
+            }
+            choice nodeattr {
+                mandatory true;
+                case lnodeattr {
+                    when "type= 'L'";
+                    leaf action-type {
+                        type string;
+                    }
+                    list link {
+                        key "link-id";
+                        leaf link-id {
+                            type string;
+                        }
+                        container src-node {
+                            leaf node-id {
+                                type string;
+                            }
+                            leaf port {
+                                type string;
+                            }
+                        }
+                        container dst-node {
+                            leaf node-id {
+                                type string;
+                            }
+                            leaf port {
+                                type string;
+                            }
+                        }
+                    }
+                }
+                case tnodeattr {
+                    when "type='T'";
+                    leaf testfield {
+                        type string;
+                    }
+                }
+                case vnodeattr {
+                    when "type='V'";
+                    leaf matchfield {
+                        type string;
+                    }
+                }
+           }
+        }
+        list tt-link-v2 {
+            key "id";
+            leaf id {
+                type string;
+            }
+            leaf predicate-id {
+                type string;
+            }
+            leaf condition {
+                type string;
+            }
+            leaf destination-id {
+                type string;
+            }
+        }
+    }
+}
+```
+
+And the history versions of trace tree is defined as the following model:
+
+``` yang
+container tracetreehistory {
+    config false;
+    container history-count {
+        leaf count {
+            type uint32;
+        }
+    }
+    list history {
+        key "seq";
+        leaf seq {
+            type uint32;
+        }
+        container pkt {
+            leaf pkt-str {
+                type string;
+            }
+            leaf pkt-json-str {
+                type string;
+            }
+            leaf pkt-hex {
+                type string;
+            }
+            leaf timestamp {
+                type string;
+            }
+        }
+        uses tracetree-v2-grouping;
+    }
+}
+```
+
+### RESTful API
+
+#### Trace Tree (Old)
 
 GET  http://localhost:8181/restconf/config/maple-tracetree:tracetree/
 
-> Example Response
+**Example Response**
 
 ```json
 {
@@ -159,11 +273,11 @@ GET  http://localhost:8181/restconf/config/maple-tracetree:tracetree/
 
 ````
 
+#### Trace Tree Version Count
 
 GET http://localhost:8181/restconf/operational/maple-tracetree-history:tracetreehistory/history-count/
 
-
-> Example Response
+**Example Response**
 
 ````json
 {
@@ -173,11 +287,13 @@ GET http://localhost:8181/restconf/operational/maple-tracetree-history:tracetree
 }
 ````
 
+#### Trace Tree History
+
 GET http://localhost:8181/restconf/operational/maple-tracetree-history:tracetreehistory/history/{seq}/
 
-{seq} is an interger from 0 to ( history_count -1 )
+> `{seq}` is an integer between 0 and ( history_count -1 ).
 
-> Example Response
+**Example Response**
 
 ```json
 {
@@ -297,6 +413,8 @@ GET http://localhost:8181/restconf/operational/maple-tracetree-history:tracetree
 
 ```
 
+#### All History of Trace Tree
+
 GET http://localhost:8181/restconf/operational/maple-tracetree-history:tracetreehistory/
 
-It can get all historic records, it is not recommended if you do a polling operation.
+> It can get all historic records, it is not recommended if you do a polling operation.
