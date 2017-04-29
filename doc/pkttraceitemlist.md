@@ -74,4 +74,4 @@ The 'pkt' field of TraceTree history response is as follows.
 
 About "branch" field of "traceitemlist", when the type is "V", "branch" is always "1", but when the type is "T", if the API call 'pkt.xxxIs(MyValue)' return true, then "branch" is "1", else "branch" is "0".
 
-About "value" field of "traceitemlist", when the type is "V", "value" is the value of packet's "field", but when the type is "V", whether the API call 'pkt.xxxIs(MyValue)' return true or false, "value" is "MyValue"
+About "value" field of "traceitemlist", when the type is "V", "value" is the value of packet's "field", but when the type is "T", whether the API call 'pkt.xxxIs(MyValue)' return true or false, "value" is "MyValue"
