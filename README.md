@@ -70,7 +70,12 @@ mvn archetype:generate -DarchetypeGroupId=org.opendaylight.maple \
     -DclassPrefix=MapleApp \
     -Dcopyright=None \
     -DinteractiveMode=false
+```
 
+then you can edit `MapleApp/impl/src/main/java/org/opendaylight/mapleapp/impl/MapleApp.java` like [MapleAppSample.java](doc/MapleAppSample.java), and compile the project as follows.
+
+
+```bash
 cd MapleApp
 mvn clean install -DskipTests
 ```

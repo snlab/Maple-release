@@ -1,7 +1,7 @@
 #!/bin/bash
 
-TAG=v0.2.2-alpha
-VERSION=0.2.2-alpha
+TAG=v0.2.3-alpha
+VERSION=0.2.3-alpha
 MAPLE_ZIP=maple-$VERSION
 
 function install_maple {
