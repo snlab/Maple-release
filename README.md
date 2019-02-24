@@ -40,7 +40,7 @@ The easiest way to install Maple is to use our [automatic installer](https://raw
 If you have a bash-compatible shell, you can run this script:
 
 ```bash
-    sh <(curl https://raw.githubusercontent.com/snlab/Maple-release/master/utils/install.sh -L)
+    bash <(curl https://raw.githubusercontent.com/snlab/Maple-release/master/utils/install.sh -L)
 ```
 
 It will do the following things:
@@ -52,7 +52,7 @@ It will do the following things:
 And then, you can start the maple controller by using the [start script](https://raw.githubusercontent.com/snlab/Maple-release/master/utils/start_maple.sh), you will see an output as `ODLMapleProvider Session Initiated` in terminal:
 
 ```bash
-    sh <(curl https://raw.githubusercontent.com/snlab/Maple-release/master/utils/start_maple.sh -L)
+    bash <(curl https://raw.githubusercontent.com/snlab/Maple-release/master/utils/start_maple.sh -L)
 ```
 
 ## First MapleApp
